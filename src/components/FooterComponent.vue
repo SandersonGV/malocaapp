@@ -1,0 +1,120 @@
+<template>
+  <div
+    class="container-fluid bg-dark text-light footer wow fadeIn"
+    data-wow-delay="0.1s"
+  >
+    <div class="container pb-5">
+      <div class="row g-5">
+        <div class="col-md-6 col-lg-4">
+          <div class="bg-primary rounded p-4">
+            <a href="index.html"
+              ><h1 class="text-white text-uppercase mb-3">
+                {{ maloca.titulo }}
+              </h1></a
+            >
+            <p class="text-white mb-0">
+              {{ maloca.frase }}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h6 class="section-title text-start text-primary text-uppercase mb-4">
+            Contato
+          </h6>
+          <p class="mb-2 text-start">
+            <i class="fa fa-map-marker-alt me-3"></i>{{ maloca.endereco }}
+          </p>
+          <p class="mb-2 text-start">
+            <i class="fa fa-phone-alt me-3"></i>{{ maloca.telefone }}
+          </p>
+          <p class="mb-2 text-start">
+            <i class="fa fa-envelope me-3"></i>{{ maloca.email }}
+          </p>
+          <div class="d-flex pt-2">
+            <a
+              class="btn btn-outline-light btn-social"
+              v-for="item in maloca.social"
+              :key="item.id"
+              href=""
+              ><i :class="item.icone"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12">
+          <div class="row gy-5 g-4">
+            <div class="col-md-6">
+              <h6
+                class="
+                  section-title
+                  text-start text-primary text-uppercase
+                  mb-4
+                "
+              >
+                Empresa
+              </h6>
+              <a class="btn btn-link" href="">Sobre nós</a>
+              <a class="btn btn-link" href="">Entre em contato</a>
+            </div>
+            <div class="col-md-6">
+              <h6
+                class="
+                  section-title
+                  text-start text-primary text-uppercase
+                  mb-4
+                "
+              >
+                Serviços
+              </h6>
+              <a
+                class="btn btn-link"
+                v-for="item in maloca.servicos"
+                :key="item.id"
+                href=""
+                >{{ item.nome }}</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copyright">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0"></div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-menu">
+              <a href="">Inicio</a>
+              <a href="">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import MalocaInfo from "@/models/malocainfo";
+
+export default {
+  name: "FooterComponent",
+  props: {},
+  data() {
+    return {
+      maloca: {},
+    };
+  },
+  methods: {
+    loadMalocainfo: function () {
+      this.maloca = new MalocaInfo();
+    },
+  },
+  created() {
+    this.loadMalocainfo();
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
