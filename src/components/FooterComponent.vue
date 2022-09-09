@@ -9,11 +9,11 @@
           <div class="bg-primary rounded p-4">
             <a href="index.html"
               ><h1 class="text-white text-uppercase mb-3">
-                {{ maloca.titulo }}
+                {{ malocainfo?.titulo }}
               </h1></a
             >
             <p class="text-white mb-0">
-              {{ maloca.frase }}
+              {{ malocainfo?.frase }}
             </p>
           </div>
         </div>
@@ -22,18 +22,18 @@
             Contato
           </h6>
           <p class="mb-2 text-start">
-            <i class="fa fa-map-marker-alt me-3"></i>{{ maloca.endereco }}
+            <i class="fa fa-map-marker-alt me-3"></i>{{ malocainfo?.endereco }}
           </p>
           <p class="mb-2 text-start">
-            <i class="fa fa-phone-alt me-3"></i>{{ maloca.telefone }}
+            <i class="fa fa-phone-alt me-3"></i>{{ malocainfo?.telefone }}
           </p>
           <p class="mb-2 text-start">
-            <i class="fa fa-envelope me-3"></i>{{ maloca.email }}
+            <i class="fa fa-envelope me-3"></i>{{ malocainfo?.email }}
           </p>
           <div class="d-flex pt-2">
             <a
               class="btn btn-outline-light btn-social"
-              v-for="item in maloca.social"
+              v-for="item in malocainfo?.social"
               :key="item.id"
               href=""
               ><i :class="item.icone"></i
@@ -67,7 +67,7 @@
               </h6>
               <a
                 class="btn btn-link"
-                v-for="item in maloca.servicos"
+                v-for="item in malocainfo?.servicos"
                 :key="item.id"
                 href=""
                 >{{ item.nome }}</a
@@ -94,24 +94,10 @@
 </template>
 
 <script>
-import MalocaInfo from "@/models/malocainfo";
 
 export default {
   name: "FooterComponent",
-  props: {},
-  data() {
-    return {
-      maloca: {},
-    };
-  },
-  methods: {
-    loadMalocainfo: function () {
-      this.maloca = new MalocaInfo();
-    },
-  },
-  created() {
-    this.loadMalocainfo();
-  },
+  props: {malocainfo:Object}
 };
 </script>
 

@@ -23,8 +23,8 @@
             <div class="p-4 mt-2">
               <div class="d-flex justify-content-between mb-3">
                 <h5 class="mb-0">{{item.nome}}</h5>
-                <div class="ps-2" v-for="item,index in Array(item.complexidade).fill()" :key="index">
-                  <small class="fa fa-star text-primary"></small>
+                <div class="ps-2" >
+                  <small class="fa fa-star text-primary" v-for="item,index in Array(item.complexidade).fill()" :key="index"></small>
                 </div>
               </div>
               <div class="d-flex mb-3">
@@ -55,10 +55,27 @@
 </template>
 
 <script>
+import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "ProjectsComponent",
   props: {
-    projetos: Array,
+    exibir: {Number , default:0},
+  },
+  data() {
+    return {
+      projetos:[],
+    };
+  },
+  methods: {
+    loadMalocainfo:async function () {
+      this.projetos  = await malocaConsumer.getProjects();
+      if(this.exibir>0){
+        this.projetos = this.projetos.filter((e,i)=>{if(i<2)return e});
+      }
+    },
+  },
+  async mounted() {
+    await this.loadMalocainfo();
   },
 };
 </script>

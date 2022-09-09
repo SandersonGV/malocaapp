@@ -41,11 +41,28 @@
 </template>
 
 <script>
+import malocaConsumer from '@/database/malocaConsumer';
 
 export default {
   name: "CarouselComponent",
   props: {
-    destaques: Array
+    exibir: {Number , default:0},
+  },
+  data() {
+    return {
+      destaques:[],
+    };
+  },
+  methods: {
+    loadMalocainfo:async function () {
+      this.destaques  = await malocaConsumer.getProjects();
+      if(this.exibir>0){
+        this.destaques = this.projetos.filter((e,i)=>{if(i<this.exibir)return e});
+      }
+    },
+  },
+  async mounted() {
+    await this.loadMalocainfo();
   },
 };
 </script>

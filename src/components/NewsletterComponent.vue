@@ -17,29 +17,21 @@
 </template>
 
 <script>
-import MalocaInfo from '@/models/malocainfo';
 
 export default {
   name: 'NewsletterComponent',
   props: {
-    msg: String,
   },
   data() {
     return {
-      maloca:{},
       email:"",
     }
   },
   methods: {
-    loadMalocainfo:function(){
-      this.maloca = new MalocaInfo();
-    },
     registrarNewslLetter: function(){
       console.log("cadastrando email" +this.email);
     },
-  },created() {
-    this.loadMalocainfo();
-  },
+  }
 }
 </script>
 

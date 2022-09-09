@@ -50,10 +50,20 @@
 </template>
 
 <script>
+import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "TeamComponent",
-  props: {
-    team: Array,
+  data() {
+    return {
+      team:[],
+    }
+  },methods: {
+    loadMalocainfo:async function () {
+      this.team  = await malocaConsumer.getTeam();
+    },
+  },
+  async mounted() {
+    await this.loadMalocainfo();
   },
 };
 </script>

@@ -95,9 +95,7 @@
 </template>
 
 <script>
-import MalocaInfo from "@/models/malocainfo";
-import BaseRepository from "@/repository/baseRepository"
-
+import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "WorkspaceView",
   components: {
@@ -110,10 +108,9 @@ export default {
     };
   },
   methods: {
-    loadMalocainfo: function () {
-      this.maloca = new MalocaInfo();
+    loadMalocainfo: async function () {
+      this.maloca = await malocaConsumer.getInfos();
       console.log(this.maloca)
-      BaseRepository.insertOne(this.maloca)
     },
   },
   created() {

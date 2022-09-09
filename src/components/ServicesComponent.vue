@@ -33,10 +33,21 @@
 </template>
 
 <script>
+import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "ServicesComponent",
-  props: {
-    servicos: Array,
+  data() {
+    return {
+      servicos:[],
+    };
+  },
+  methods: {
+    loadMalocainfo:async function () {
+      this.servicos  = await malocaConsumer.getServices();
+    },
+  },
+  async mounted() {
+    await this.loadMalocainfo();
   },
 };
 </script>

@@ -11,22 +11,22 @@
                         <div class="col-lg-7 px-5 text-start">
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
                                 <i class="fa fa-envelope text-primary me-2"></i>
-                                <p class="mb-0">{{maloca.email}}</p>
+                                <p class="mb-0">{{malocainfo?.email}}</p>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <i class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">{{maloca.telefone}}</p>
+                                <p class="mb-0">{{malocainfo?.telefone}}</p>
                             </div>
                         </div>
                         <div class="col-lg-5 px-5 text-end">
                             <div class="d-inline-flex align-items-center py-2">
-                              <a v-for="item in maloca.social" :key="item.id" class="me-3" :href="item.url"><i :class="item.icone"></i></a>
+                              <a v-for="item in malocainfo?.social" :key="item.id" class="me-3" :href="item.url"><i :class="item.icone"></i></a>
                             </div>
                         </div>
                     </div>
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
                         <router-link to="/" class="navbar-brand d-block d-lg-none">
-                            <h1 class="m-0 text-primary text-uppercase">{{maloca.titulo}}</h1>
+                            <h1 class="m-0 text-primary text-uppercase">{{malocainfo?.titulo}}</h1>
                         </router-link>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -47,25 +47,12 @@
 </template>
 
 <script>
-import MalocaInfo from '@/models/malocainfo';
 
 export default {
   name: 'HeaderComponent',
   props: {
-    msg: String,
-  },
-  data() {
-    return {
-      maloca:{},
-    }
-  },
-  methods: {
-    loadMalocainfo:function(){
-      this.maloca = new MalocaInfo();
-    },
-  },created() {
-    this.loadMalocainfo();
-  },
+    malocainfo: Object,
+  }
 }
 </script>
 

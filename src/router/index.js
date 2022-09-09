@@ -14,6 +14,7 @@ const routes = [
     path: '/',
     name: 'home',
     component: SiteView,
+    props: {maloca:Object},
     children: [
         {
           path: '/',
@@ -56,7 +57,8 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  props:true
 })
 
 export default router

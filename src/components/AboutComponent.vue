@@ -4,14 +4,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <h6 class="section-title text-start text-primary text-uppercase">Sobre nós</h6>
-                    <h1 class="mb-4">Bem vindos à <span class="text-primary text-uppercase">{{maloca.titulo}}</span></h1>
-                    <p class="mb-4">{{maloca.frase}}</p>
+                    <h1 class="mb-4">Bem vindos à <span class="text-primary text-uppercase">{{maloca?.titulo}}</span></h1>
+                    <p class="mb-4">{{maloca?.frase}}</p>
                     <div class="row g-3 pb-4">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
                                     <i class="far fa-object-group fa-2x text-primary mb-2"></i>
-                                    <h2 class="mb-1" data-toggle="counter-up">{{maloca.projetos.length}}</h2>
+                                    <h2 class="mb-1" data-toggle="counter-up">{{maloca?.projetos?.length}}</h2>
                                     <p class="mb-0">Projetos</p>
                                 </div>
                             </div>
@@ -20,7 +20,7 @@
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
                                     <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
-                                    <h2 class="mb-1" data-toggle="counter-up">{{maloca.time.length}}</h2>
+                                    <h2 class="mb-1" data-toggle="counter-up">{{maloca?.team?.length}}</h2>
                                     <p class="mb-0">Equipe</p>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
                             <div class="border rounded p-1">
                                 <div class="border rounded text-center p-4">
                                     <i class="fas fa-handshake fa-2x text-primary mb-2"></i>
-                                    <h2 class="mb-1" data-toggle="counter-up">8</h2>
+                                    <h2 class="mb-1" data-toggle="counter-up">{{maloca?.partners?.length}}</h2>
                                     <p class="mb-0">Parceiros</p>
                                 </div>
                             </div>
@@ -59,24 +59,26 @@
 </template>
 
 <script>
-import MalocaInfo from '@/models/malocainfo';
+import malocaConsumer from '@/database/malocaConsumer';
 
 export default {
   name: 'AboutComponent',
-  props: {
-    msg: String,
-  },
   data() {
     return {
-      maloca:{},
+        maloca:{},
     }
-  },
-  methods: {
-    loadMalocainfo:function(){
-      this.maloca = new MalocaInfo();
+  },methods: {
+    loadMalocainfo:async function () {
+      this.maloca = await malocaConsumer.getInfo();
+      let projetos  = await malocaConsumer.getProjects();
+      let team  = await malocaConsumer.getTeam();
+      this.maloca.projetos = projetos;
+      this.maloca.team = team;
+      this.maloca.partners = [];
     },
-  },created() {
-    this.loadMalocainfo();
+  },
+  async mounted() {
+    await this.loadMalocainfo();
   },
 }
 </script>
