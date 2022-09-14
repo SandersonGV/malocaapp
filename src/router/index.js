@@ -5,9 +5,6 @@ import ProjectsView from "../views/ProjectsView.vue"
 import ContactView from "../views/ContactView.vue"
 import ServicesView from "../views/ServicesView.vue"
 import SiteView from "../views/SiteView.vue"
-import LoginView from "../views/Admin/LoginView.vue"
-import DashboardView from "../views/Admin/DashboardView.vue"
-import WorkspaceView from "../views/Admin/WorkspaceView.vue"
 
 const routes = [
   {
@@ -37,22 +34,7 @@ const routes = [
           component: ServicesView,         
         }         
       ],
-  },
-  {
-    path: '/admin',
-    name: 'dashboard',
-    component: DashboardView,
-    children: [
-        {
-          path: 'login',
-          component: LoginView,         
-        }, {
-          path: 'workspace',
-          component: WorkspaceView,         
-        },    
-      ],
-  }
-  
+  }  
 ]
 
 const router = createRouter({
