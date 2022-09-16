@@ -7,10 +7,10 @@
       <div class="row g-5">
         <div class="col-md-6 col-lg-4">
           <div class="bg-primary rounded p-4">
-            <a href="index.html"
+            <router-link to="/" 
               ><h1 class="text-white text-uppercase mb-3">
                 {{ malocainfo.info?.titulo }}
-              </h1></a
+              </h1></router-link
             >
             <p class="text-white mb-0">
               {{ malocainfo.info?.frase }}
@@ -35,7 +35,7 @@
               class="btn btn-outline-light btn-social"
               v-for="item in malocainfo.info?.social"
               :key="item.id"
-              href=""
+              :href="item.url"
               ><i :class="item.icone"></i
             ></a>
           </div>
@@ -52,8 +52,8 @@
               >
                 Empresa
               </h6>
-              <a class="btn btn-link" href="">Sobre nós</a>
-              <a class="btn btn-link" href="">Entre em contato</a>
+              <a class="btn btn-link" >Sobre nós</a>
+              <a class="btn btn-link" >Entre em contato</a>
             </div>
             <div class="col-md-6">
               <h6
@@ -65,12 +65,11 @@
               >
                 Serviços
               </h6>
-              <a
+              <router-link to="/services"
                 class="btn btn-link"
                 v-for="item in malocainfo?.servicos"
                 :key="item.id"
-                href=""
-                >{{ item.nome }}</a
+                >{{ item.nome }}</router-link
               >
             </div>
           </div>
@@ -83,8 +82,8 @@
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0"></div>
           <div class="col-md-6 text-center text-md-end">
             <div class="footer-menu">
-              <a href="">Inicio</a>
-              <a href="">Cookies</a>
+              <router-link to="/">Inicio</router-link>
+              <a >Cookies</a>
             </div>
           </div>
         </div>

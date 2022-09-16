@@ -47,9 +47,9 @@
               </div>
               <p class="text-body mb-3">{{item.frase}}</p>
               <div class="d-flex justify-content-between">
-                <a class="btn btn-sm btn-primary rounded py-2 px-4" href=""
-                  >ver mais</a
-                >
+                <router-link to="/projects" class="btn btn-sm btn-primary rounded py-2 px-4"
+                  >ver mais
+                </router-link>
               </div>
             </div>
           </div>

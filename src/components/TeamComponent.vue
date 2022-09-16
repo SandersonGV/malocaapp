@@ -33,7 +33,7 @@
                   v-for="itemSocial, indexSocial in item.social"
                   :key="indexSocial"
                   class="btn btn-square btn-primary mx-1"
-                  href=""
+                  href="itemSocial.url"
                   ><i :class="itemSocial.icone"></i
                 ></a>
               </div>

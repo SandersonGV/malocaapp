@@ -14,8 +14,8 @@
                             <div class="p-3" >
                                 <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{item.nome}}</h6>
                                 <h1 class="display-3 text-white mb-4 animated slideInDown">{{item.frase}}</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Nossos Projetos</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Conheça este Projeto</a>
+                                <router-link to="/projects"  href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Nossos Projetos</router-link>
+                                <router-link :to="'/projects/'+_id" href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Conheça este Projeto</router-link>
                             </div>
                         </div>
                     </div>
