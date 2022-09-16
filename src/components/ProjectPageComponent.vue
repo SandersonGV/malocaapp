@@ -55,7 +55,6 @@ export default {
     
   },
   async mounted() {
-    console.log(this.id)
     this.projeto = this.projetos.find(element => element._id == this.id)
   },
 };
