@@ -11,7 +11,7 @@ const routes = [
     path: '/',
     name: 'home',
     component: SiteView,
-    props: {maloca:Object},
+    props: {malocaprop:Object},
     children: [
         {
           path: '/',

@@ -1,10 +1,10 @@
 <template defer>
   <div class="home">
-    <CarouselComponent />
-    <AboutComponent />
-    <ProjectsComponent  />
-     <ServicesComponent />
-    <TeamComponent />
+    <CarouselComponent :projetos="malocaprop.projetos" />
+    <AboutComponent :malocaprop="malocaprop" />
+    <ProjectsComponent :projetos="malocaprop.projetos" />
+    <ServicesComponent :servicos="malocaprop.servicos" />
+    <TeamComponent :time="malocaprop.team" />
   </div>
 </template>
 
@@ -19,11 +19,16 @@ import TeamComponent from "@/components/TeamComponent.vue";
 export default {
   name: "HomeView",
   components: {
-    CarouselComponent, 
+    CarouselComponent,
     AboutComponent,
     ProjectsComponent,
     ServicesComponent,
     TeamComponent,
-  }
+  },
+  props: {
+    malocaprop: Object,
+  },
+  async mounted() {
+  },
 };
 </script>

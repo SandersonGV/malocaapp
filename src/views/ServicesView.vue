@@ -1,8 +1,8 @@
 <template>
-  <div class="servicos">
+  <div class="servicos" >
     <PageHeaderComponent page-name="Serviços" />
-     <ServicesComponent />
-    <ProjectsComponent exibir="3" />
+    <ServicesComponent :servicos="malocaprop.servicos" />
+    <ProjectsComponent :projetos="malocaprop.projetos" exibir="4" />
   </div>
 </template>
 
@@ -13,10 +13,13 @@ import ProjectsComponent from "@/components/ProjectsComponent.vue";
 
 export default {
   name: "ServicesView",
- components: {
-    PageHeaderComponent, 
+  components: {
+    PageHeaderComponent,
     ServicesComponent,
     ProjectsComponent,
-  }
+  },
+  props: {
+    malocaprop: Object,
+  },
 };
 </script>

@@ -9,11 +9,11 @@
           <div class="bg-primary rounded p-4">
             <a href="index.html"
               ><h1 class="text-white text-uppercase mb-3">
-                {{ malocainfo?.titulo }}
+                {{ malocainfo.info?.titulo }}
               </h1></a
             >
             <p class="text-white mb-0">
-              {{ malocainfo?.frase }}
+              {{ malocainfo.info?.frase }}
             </p>
           </div>
         </div>
@@ -22,18 +22,18 @@
             Contato
           </h6>
           <p class="mb-2 text-start">
-            <i class="fa fa-map-marker-alt me-3"></i>{{ malocainfo?.endereco }}
+            <i class="fa fa-map-marker-alt me-3"></i>{{ malocainfo.info?.endereco }}
           </p>
           <p class="mb-2 text-start">
-            <i class="fa fa-phone-alt me-3"></i>{{ malocainfo?.telefone }}
+            <i class="fa fa-phone-alt me-3"></i>{{ malocainfo.info?.telefone }}
           </p>
           <p class="mb-2 text-start">
-            <i class="fa fa-envelope me-3"></i>{{ malocainfo?.email }}
+            <i class="fa fa-envelope me-3"></i>{{ malocainfo.info?.email }}
           </p>
           <div class="d-flex pt-2">
             <a
               class="btn btn-outline-light btn-social"
-              v-for="item in malocainfo?.social"
+              v-for="item in malocainfo.info?.social"
               :key="item.id"
               href=""
               ><i :class="item.icone"></i

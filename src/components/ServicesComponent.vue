@@ -1,5 +1,5 @@
 <template>
-  <div class="container-xxl py-5">
+  <div  class="container-xxl py-5">
     <div class="container">
       <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title text-center text-primary text-uppercase">
@@ -33,22 +33,15 @@
 </template>
 
 <script>
-import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "ServicesComponent",
+  props:{
+    servicos: {type:Array}
+  },
   data() {
     return {
-      servicos:[],
     };
-  },
-  methods: {
-    loadMalocainfo:async function () {
-      this.servicos  = await malocaConsumer.getServices();
-    },
-  },
-  async mounted() {
-    await this.loadMalocainfo();
-  },
+  }
 };
 </script>
 

@@ -1,11 +1,16 @@
 <template>
   <div class="container-xxl py-5">
-        <div class="container">
+        <div v-if="loading"  class="show bg-white d-flex align-items-center justify-content-center">
+        <div class="fa-3x">
+            <i class="fa-sharp fa-music fa-flip"></i>
+        </div>
+        </div>
+        <div v-else class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <h6 class="section-title text-start text-primary text-uppercase">Sobre nós</h6>
-                    <h1 class="mb-4">Bem vindos à <span class="text-primary text-uppercase">{{maloca?.titulo}}</span></h1>
-                    <p class="mb-4">{{maloca?.frase}}</p>
+                    <h1 class="mb-4">Bem vindos à <span class="text-primary text-uppercase">{{maloca?.info?.titulo}}</span></h1>
+                    <p class="mb-4">{{maloca?.info?.frase}}</p>
                     <div class="row g-3 pb-4">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">
@@ -59,26 +64,21 @@
 </template>
 
 <script>
-import malocaConsumer from '@/database/malocaConsumer';
 
 export default {
   name: 'AboutComponent',
+  props: {
+    malocaprop: Object,
+  },
   data() {
     return {
-        maloca:{},
+        maloca: this.malocaprop,
     }
   },methods: {
-    loadMalocainfo:async function () {
-      this.maloca = await malocaConsumer.getInfo();
-      let projetos  = await malocaConsumer.getProjects();
-      let team  = await malocaConsumer.getTeam();
-      this.maloca.projetos = projetos;
-      this.maloca.team = team;
-      this.maloca.partners = [];
-    },
+    
   },
   async mounted() {
-    await this.loadMalocainfo();
+
   },
 }
 </script>

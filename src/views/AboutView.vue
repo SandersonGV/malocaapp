@@ -1,8 +1,8 @@
 <template>
   <div class="about">
     <PageHeaderComponent page-name="Sobre-nós" />
-    <AboutComponent  />
-    <TeamComponent  />
+    <AboutComponent :malocaprop="malocaprop"/>
+    <TeamComponent :time="malocaprop.team" />
   </div>
 </template>
 
@@ -18,10 +18,13 @@ export default {
     AboutComponent,
     TeamComponent,
   },
-  
+  props: {
+    malocaprop: Object,
+  },
   data() {
-    return {
-    };
-  }
+    return {};
+  },
+  mounted() {
+  },
 };
 </script>

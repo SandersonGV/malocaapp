@@ -1,5 +1,10 @@
 <template>
-  <div class="container-xxl py-5">
+  <div v-if="loading"  class="show bg-white d-flex align-items-center justify-content-center">
+      <div class="fa-3x">
+        <i class="fa-sharp fa-music fa-flip"></i>
+      </div>
+    </div>
+    <div v-else class="container-xxl py-5">
     <div class="container">
       <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title text-center text-primary text-uppercase">
@@ -11,7 +16,7 @@
         </h1>
       </div>
       <div class="row g-4">
-        <div v-for="item in projetos" :key="item.id" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div v-for="item in projects" :key="item.id" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="room-item shadow rounded overflow-hidden">
             <div class="position-relative">
               <img class="img-fluid" :src="item.img" alt="" />
@@ -55,27 +60,24 @@
 </template>
 
 <script>
-import malocaConsumer from '@/database/malocaConsumer';
 export default {
   name: "ProjectsComponent",
   props: {
-    exibir: {Number , default:0},
+    exibir: {type:Number , default:0},
+    projetos: {type:Object } 
   },
   data() {
     return {
-      projetos:[],
+      projects: this.projetos
     };
   },
   methods: {
-    loadMalocainfo:async function () {
-      this.projetos  = await malocaConsumer.getProjects();
-      if(this.exibir>0){
-        this.projetos = this.projetos.filter((e,i)=>{if(i<2)return e});
-      }
-    },
+    
   },
   async mounted() {
-    await this.loadMalocainfo();
+    if(this.exibir>0){
+        this.projects = this.projects.filter((e,i)=>{if(i<this.exibir)return e});
+      }
   },
 };
 </script>

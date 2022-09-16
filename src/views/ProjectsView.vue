@@ -1,8 +1,7 @@
 <template>
   <div class="about">
     <PageHeaderComponent page-name="Projetos" />
-    <ProjectsComponent />
-  </div>
+    <ProjectsComponent :projetos="malocaprop.projetos" />  </div>
 </template>
 
 <script>
@@ -14,6 +13,8 @@ export default {
   components: {
     PageHeaderComponent, 
     ProjectsComponent,
-  }
+  },props: {
+    malocaprop: Object,
+  },
 };
 </script>

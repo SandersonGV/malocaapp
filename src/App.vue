@@ -7,6 +7,10 @@
 export default {
   components: {
 },
+data() {
+    return {
+    }
+  }
 };
 </script>
 

@@ -1,5 +1,7 @@
 <template>
-  <div class="container-fluid p-0 mb-5">
+    
+    <div   class="container-fluid p-0 mb-5">
+      
     <div
       id="header-carousel"
       class="carousel slide"
@@ -41,29 +43,25 @@
 </template>
 
 <script>
-import malocaConsumer from '@/database/malocaConsumer';
 
 export default {
   name: "CarouselComponent",
   props: {
-    exibir: {Number , default:0},
+    exibir: {type:Number , default:0},
+    projetos: {type:Object },
   },
   data() {
     return {
-      destaques:[],
+      destaques: this.projetos,
     };
   },
   methods: {
-    loadMalocainfo:async function () {
-      this.destaques  = await malocaConsumer.getProjects();
-      if(this.exibir>0){
-        this.destaques = this.projetos.filter((e,i)=>{if(i<this.exibir)return e});
-      }
-    },
   },
   async mounted() {
-    await this.loadMalocainfo();
-  },
+    if(this.exibir>0){
+        this.destaques = this.projetos.filter((e,i)=>{if(i<this.exibir)return e});
+      }  
+    },
 };
 </script>
 
