@@ -58,7 +58,7 @@
 export default {
   name: "ProjectsComponent",
   props: {
-    exibir: {type:Number , default:0},
+    exibir: {type:String , default:'0'},
     projetos: {type:Object } 
   },
   data() {

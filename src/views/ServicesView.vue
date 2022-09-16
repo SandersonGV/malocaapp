@@ -2,7 +2,7 @@
   <div class="servicos" >
     <PageHeaderComponent page-name="Serviços" />
     <ServicesComponent :servicos="malocaprop.servicos" />
-    <ProjectsComponent :projetos="malocaprop.projetos" exibir="4" />
+    <ProjectsComponent :projetos="malocaprop.projetos" exibir="3" />
   </div>
 </template>
 
