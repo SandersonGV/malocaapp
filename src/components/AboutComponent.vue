@@ -1,11 +1,6 @@
 <template>
   <div class="container-xxl py-5">
-        <div v-if="loading"  class="show bg-white d-flex align-items-center justify-content-center">
-        <div class="fa-3x">
-            <i class="fa-sharp fa-music fa-flip"></i>
-        </div>
-        </div>
-        <div v-else class="container">
+        <div  class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
                     <h6 class="section-title text-start text-primary text-uppercase">Sobre nós</h6>

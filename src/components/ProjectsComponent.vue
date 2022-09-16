@@ -1,10 +1,5 @@
 <template>
-  <div v-if="loading"  class="show bg-white d-flex align-items-center justify-content-center">
-      <div class="fa-3x">
-        <i class="fa-sharp fa-music fa-flip"></i>
-      </div>
-    </div>
-    <div v-else class="container-xxl py-5">
+  <div  class="container-xxl py-5">
     <div class="container">
       <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
         <h6 class="section-title text-center text-primary text-uppercase">
@@ -47,7 +42,7 @@
               </div>
               <p class="text-body mb-3">{{item.frase}}</p>
               <div class="d-flex justify-content-between">
-                <router-link to="/projects" class="btn btn-sm btn-primary rounded py-2 px-4"
+                <router-link :to="'/projects/'+item._id" class="btn btn-sm btn-primary rounded py-2 px-4"
                   >ver mais
                 </router-link>
               </div>
@@ -67,7 +62,7 @@ export default {
     projetos: {type:Object } 
   },
   data() {
-    return {
+    return { 
       projects: this.projetos
     };
   },

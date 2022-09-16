@@ -16,22 +16,32 @@ const routes = [
         {
           path: '/',
           component: HomeView,         
+          props: true         
         },
         {
-          path: 'about',
+          path: '/about',
           component: AboutView,         
+          props: true         
         },
         {
-          path: 'projects',
+          path: '/projects',
           component: ProjectsView,         
+          props: true         
         },
         {
-        path: 'contact',
+          path: '/projects/:id',
+          component: ProjectsView,
+          props: true         
+        },
+        {
+        path: '/contact',
         component: ContactView,         
-        },
+        props: true         
+      },
         {
-          path: 'services',
+          path: '/services',
           component: ServicesView,         
+          props: true         
         }         
       ],
   }  
