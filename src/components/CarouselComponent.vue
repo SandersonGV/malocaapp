@@ -61,7 +61,6 @@ export default {
     if(this.exibir>0){
         this.destaques = this.projetos.filter((e,i)=>{if(i<this.exibir)return e});
       }  
-      console.log(this.projetos)
     },
 };
 </script>
